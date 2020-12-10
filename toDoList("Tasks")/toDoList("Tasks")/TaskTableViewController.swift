@@ -15,13 +15,24 @@ class TaskTableViewController: UITableViewController {
     @IBAction func addTaskButton(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Add task", message: nil, preferredStyle: .alert)
         let addAction = UIAlertAction(title: "Add", style: .default, handler: nil)
+        addAction.isEnabled = false
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addTextField { (textField) in
             textField.placeholder = "Enter task..."
+            textField.addTarget(self, action: #selector(self.handleTextChanged), for: .editingChanged)
         }
         alertController.addAction(addAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
+    }
+    
+    @objc func handleTextChanged(_ sender:UITextField){
+        guard let alertController = presentedViewController as? UIAlertController,
+              let addAction = alertController.actions.first,
+              let text = sender.text
+        else {return}
+        
+        addAction.isEnabled = !text.trimmingCharacters(in: .whitespaces).isEmpty
     }
     
     
