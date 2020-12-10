@@ -11,13 +11,22 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    let taskStore2 = TaskDataSource()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+       
+        let toDoTask = [Task(name: "Medetete"),Task(name: "Buy bananas")]
+        let doneTasks = [Task(name: "watch TV",isDone: true),Task(name: "Call to Kate", isDone: true)]
+        taskStore2.tasks = [toDoTask,doneTasks]
+        
+        let tasksController = window?.rootViewController?.children.first as? TaskTableViewController
+        tasksController?.taskStore = taskStore2
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

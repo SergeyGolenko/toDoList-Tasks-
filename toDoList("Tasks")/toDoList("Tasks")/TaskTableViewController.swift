@@ -10,7 +10,7 @@ import UIKit
 
 class TaskTableViewController: UITableViewController {
     
-    var taskStore = TaskDataSource()
+    var taskStore : TaskDataSource!
     
     @IBAction func addTaskButton(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Add task", message: nil, preferredStyle: .alert)
@@ -32,9 +32,7 @@ class TaskTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.backgroundColor = #colorLiteral(red: 0.1615069807, green: 0.7159221768, blue: 1, alpha: 1)
         
-        let toDoTask = [Task(name: "Medetete"),Task(name: "Buy bananas")]
-        let doneTasks = [Task(name: "watch TV",isDone: true)]
-        taskStore.tasks = [toDoTask,doneTasks]
+        
         
     }
     // MARK: - Table view data source
