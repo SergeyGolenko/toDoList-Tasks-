@@ -14,7 +14,16 @@ class TaskTableViewController: UITableViewController {
     
     @IBAction func addTaskButton(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Add task", message: nil, preferredStyle: .alert)
-        let addAction = UIAlertAction(title: "Add", style: .default, handler: nil)
+        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
+            guard let name = alertController.textFields?.first?.text else {return}
+            //Create task
+            let newTask = Task(name: name)
+            self.taskStore.add(newTask, at: 0)
+            //reload data
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView.insertRows(at: [indexPath], with:.bottom)
+            
+        }
         addAction.isEnabled = false
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addTextField { (textField) in
