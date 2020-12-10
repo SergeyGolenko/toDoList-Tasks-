@@ -9,6 +9,7 @@
 import UIKit
 
 class TaskTableViewController: UITableViewController {
+    var taskStore = TaskDataSource()
     
     let color = CGColor(srgbRed: 38, green: 166, blue: 255, alpha: 1)
     
@@ -17,24 +18,34 @@ class TaskTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.backgroundColor = #colorLiteral(red: 0.1615069807, green: 0.7159221768, blue: 1, alpha: 1)
         
+        let toDoTask = [Task(name: "Medetete"),Task(name: "Buy bananas")]
+        let doneTasks = [Task(name: "watch TV",isDone: true)]
+        taskStore.tasks = [toDoTask,doneTasks]
+        
     }
     // MARK: - Table view data source
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return.lightContent
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 54
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "ToDo":"Done"  //это тернарный оператор
+    }
+  
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return taskStore.tasks.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 50    }
+        return taskStore.tasks[section].count
+        
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "100$"
+        cell.textLabel?.text = taskStore.tasks[indexPath.section][indexPath.row].name
         return cell
     }
 
