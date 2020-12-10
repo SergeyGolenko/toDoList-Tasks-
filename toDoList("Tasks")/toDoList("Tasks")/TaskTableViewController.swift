@@ -57,9 +57,7 @@ class TaskTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 54
-    }
+   
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0 ? "ToDo":"Done"  //это тернарный оператор
@@ -80,7 +78,29 @@ class TaskTableViewController: UITableViewController {
         cell.textLabel?.text = taskStore.tasks[indexPath.section][indexPath.row].name
         return cell
     }
+    
+    //MARK: - Delegate
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 54
+    }
 
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { (action, sourceView, completionHandler) in
+            let isDone = self.taskStore.tasks[indexPath.section][indexPath.row].isDone
+            self.taskStore.removeTask(at: indexPath.row, isDone: isDone)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            completionHandler(true)
+        }
+        
+        deleteAction.image = #imageLiteral(resourceName: "delete")
+        deleteAction.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+        
+    }
+    
+//    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        <#code#>
+//    }
   
 
 }
