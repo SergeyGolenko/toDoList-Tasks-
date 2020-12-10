@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C83BE7925826EE800A85007 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83BE7825826EE800A85007 /* Task.swift */; };
+		2C83BE7C258270E800A85007 /* TaskDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83BE7B258270E800A85007 /* TaskDataSource.swift */; };
 		6343B5B2258103D7005F8B49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6343B5B1258103D7005F8B49 /* AppDelegate.swift */; };
 		6343B5B4258103D7005F8B49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6343B5B3258103D7005F8B49 /* SceneDelegate.swift */; };
 		6343B5B9258103D7005F8B49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6343B5B7258103D7005F8B49 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		2C83BE7825826EE800A85007 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		2C83BE7B258270E800A85007 /* TaskDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataSource.swift; sourceTree = "<group>"; };
 		6343B5AE258103D7005F8B49 /* toDoList("Tasks").app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "toDoList(\"Tasks\").app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6343B5B1258103D7005F8B49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6343B5B3258103D7005F8B49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				6343B5B3258103D7005F8B49 /* SceneDelegate.swift */,
 				6343B5C52581094C005F8B49 /* TaskTableViewController.swift */,
 				2C83BE7825826EE800A85007 /* Task.swift */,
+				2C83BE7B258270E800A85007 /* TaskDataSource.swift */,
 				6343B5B7258103D7005F8B49 /* Main.storyboard */,
 				6343B5BA258103DC005F8B49 /* Assets.xcassets */,
 				6343B5BC258103DC005F8B49 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				2C83BE7925826EE800A85007 /* Task.swift in Sources */,
 				6343B5B2258103D7005F8B49 /* AppDelegate.swift in Sources */,
 				6343B5C62581094C005F8B49 /* TaskTableViewController.swift in Sources */,
+				2C83BE7C258270E800A85007 /* TaskDataSource.swift in Sources */,
 				6343B5B4258103D7005F8B49 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
