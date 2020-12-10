@@ -9,7 +9,21 @@
 import UIKit
 
 class TaskTableViewController: UITableViewController {
+    
     var taskStore = TaskDataSource()
+    
+    @IBAction func addTaskButton(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Add task", message: nil, preferredStyle: .alert)
+        let addAction = UIAlertAction(title: "Add", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter task..."
+        }
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+    
     
     let color = CGColor(srgbRed: 38, green: 166, blue: 255, alpha: 1)
     

@@ -33,7 +33,14 @@
                             <outlet property="delegate" destination="rOA-tE-SXf" id="log-hO-z6p"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Taskly" id="uCb-iS-3nt"/>
+                    <navigationItem key="navigationItem" title="Taskly" id="uCb-iS-3nt">
+                        <barButtonItem key="rightBarButtonItem" width="1" style="done" systemItem="add" id="4Fa-tY-KMl">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addTaskButton:" destination="rOA-tE-SXf" id="oEr-V0-6ED"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrl-6Z-DTo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
