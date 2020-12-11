@@ -98,9 +98,20 @@ class TaskTableViewController: UITableViewController {
         
     }
     
-//    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        <#code#>
-//    }
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let doneAction = UIContextualAction(style: .normal, title: nil) { (action, sourceView, completionHandler) in
+            
+            self.taskStore.tasks[0][indexPath.row].isDone = true
+            let doneTask = self.taskStore.removeTask(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.taskStore.add(doneTask, at: 0, isDone: true)
+            tableView.insertRows(at: [IndexPath(row: 0,section: 1)],with: .automatic)
+            completionHandler(true)
+        }
+        doneAction.image = #imageLiteral(resourceName: "done")
+        doneAction.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        return indexPath.section == 0 ? UISwipeActionsConfiguration(actions: [doneAction]) : nil
+    }
   
 
 }
