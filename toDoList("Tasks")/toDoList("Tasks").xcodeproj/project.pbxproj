@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1A3EB125837FAA0046F9B2 /* TasksUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1A3EB025837FAA0046F9B2 /* TasksUtility.swift */; };
 		2C83BE7925826EE800A85007 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83BE7825826EE800A85007 /* Task.swift */; };
 		2C83BE7C258270E800A85007 /* TaskDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C83BE7B258270E800A85007 /* TaskDataSource.swift */; };
 		6343B5B2258103D7005F8B49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6343B5B1258103D7005F8B49 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C1A3EB025837FAA0046F9B2 /* TasksUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksUtility.swift; sourceTree = "<group>"; };
 		2C83BE7825826EE800A85007 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		2C83BE7B258270E800A85007 /* TaskDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataSource.swift; sourceTree = "<group>"; };
 		6343B5AE258103D7005F8B49 /* toDoList("Tasks").app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "toDoList(\"Tasks\").app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +43,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C83BE7E25837D2500A85007 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C83BE7825826EE800A85007 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C83BE7F25837D4400A85007 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6343B5C52581094C005F8B49 /* TaskTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2C83BE8025837D5200A85007 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2C83BE7B258270E800A85007 /* TaskDataSource.swift */,
+				2C1A3EB025837FAA0046F9B2 /* TasksUtility.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2C83BE8125837D6800A85007 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				6343B5B1258103D7005F8B49 /* AppDelegate.swift */,
+				6343B5B3258103D7005F8B49 /* SceneDelegate.swift */,
+				6343B5BA258103DC005F8B49 /* Assets.xcassets */,
+				6343B5BC258103DC005F8B49 /* LaunchScreen.storyboard */,
+				6343B5BF258103DC005F8B49 /* Info.plist */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
 		6343B5A5258103D7005F8B49 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +99,11 @@
 		6343B5B0258103D7005F8B49 /* toDoList("Tasks") */ = {
 			isa = PBXGroup;
 			children = (
-				6343B5B1258103D7005F8B49 /* AppDelegate.swift */,
-				6343B5B3258103D7005F8B49 /* SceneDelegate.swift */,
-				6343B5C52581094C005F8B49 /* TaskTableViewController.swift */,
-				2C83BE7825826EE800A85007 /* Task.swift */,
-				2C83BE7B258270E800A85007 /* TaskDataSource.swift */,
 				6343B5B7258103D7005F8B49 /* Main.storyboard */,
-				6343B5BA258103DC005F8B49 /* Assets.xcassets */,
-				6343B5BC258103DC005F8B49 /* LaunchScreen.storyboard */,
-				6343B5BF258103DC005F8B49 /* Info.plist */,
+				2C83BE7E25837D2500A85007 /* Models */,
+				2C83BE7F25837D4400A85007 /* Controllers */,
+				2C83BE8025837D5200A85007 /* Helpers */,
+				2C83BE8125837D6800A85007 /* System */,
 			);
 			path = "toDoList(\"Tasks\")";
 			sourceTree = "<group>";
@@ -147,6 +182,7 @@
 				2C83BE7925826EE800A85007 /* Task.swift in Sources */,
 				6343B5B2258103D7005F8B49 /* AppDelegate.swift in Sources */,
 				6343B5C62581094C005F8B49 /* TaskTableViewController.swift in Sources */,
+				2C1A3EB125837FAA0046F9B2 /* TasksUtility.swift in Sources */,
 				2C83BE7C258270E800A85007 /* TaskDataSource.swift in Sources */,
 				6343B5B4258103D7005F8B49 /* SceneDelegate.swift in Sources */,
 			);
@@ -294,7 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3KLBR624F;
-				INFOPLIST_FILE = "toDoList(\"Tasks\")/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/toDoList(\"Tasks\")/System/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3KLBR624F;
-				INFOPLIST_FILE = "toDoList(\"Tasks\")/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/toDoList(\"Tasks\")/System/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
