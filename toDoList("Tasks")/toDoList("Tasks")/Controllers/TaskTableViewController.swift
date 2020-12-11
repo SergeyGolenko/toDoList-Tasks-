@@ -10,7 +10,17 @@ import UIKit
 
 class TaskTableViewController: UITableViewController {
     
-    var taskStore : TaskDataSource!
+    var taskStore : TaskDataSource!{
+        didSet{
+            //Get data
+            taskStore.tasks = TasksUtility.fetch() ?? [[Task](),[Task]()]
+            
+            //reload table view
+            tableView.reloadData()
+        }
+        
+        
+    }
     
     @IBAction func addTaskButton(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Add task", message: nil, preferredStyle: .alert)
@@ -22,6 +32,8 @@ class TaskTableViewController: UITableViewController {
             //reload data
             let indexPath = IndexPath(row: 0, section: 0)
             self.tableView.insertRows(at: [indexPath], with:.bottom)
+            
+            
             
         }
         addAction.isEnabled = false
@@ -86,14 +98,17 @@ class TaskTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (action, sourceView, completionHandler) in
-            let isDone = self.taskStore.tasks[indexPath.section][indexPath.row].isDone
+            guard let isDone = self.taskStore.tasks[indexPath.section][indexPath.row].isDone else {return}
             self.taskStore.removeTask(at: indexPath.row, isDone: isDone)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
+          
             completionHandler(true)
         }
         
         deleteAction.image = #imageLiteral(resourceName: "delete")
         deleteAction.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        
+        
         return UISwipeActionsConfiguration(actions: [deleteAction])
         
     }
@@ -106,6 +121,7 @@ class TaskTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
             self.taskStore.add(doneTask, at: 0, isDone: true)
             tableView.insertRows(at: [IndexPath(row: 0,section: 1)],with: .automatic)
+       
             completionHandler(true)
         }
         doneAction.image = #imageLiteral(resourceName: "done")
